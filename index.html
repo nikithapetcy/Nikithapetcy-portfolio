@@ -3,26 +3,13 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>[Your Name] — WordPress & Web Developer</title>
-<!--
-  ============================================================
-  HOW TO CUSTOMIZE THIS FILE
-  ============================================================
-  1. Search for [BRACKETS] — that's the only placeholder text left:
-     your name, bio, live site URLs, and contact info.
-  2. All 10 real projects are already filled in from what you gave me.
-     Each is one <article class="card"> — reorder or trim as you like.
-  3. Add live URLs by replacing the "[Add live URL]" links and the
-     "[client-domain.com]" text in each browser bar.
-  4. Colors, fonts, and spacing are all set once in :root at the
-     top of the CSS — change there to re-theme everything at once.
-  ============================================================
--->
+<title>Nikitha Petcy Panditi — WordPress & Web Developer</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;500;600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
 <style>
   :root {
     --paper: #F6F5F1;
+    --paper-alt: #EFEDE6;
     --ink: #1B1D23;
     --muted: #6B6F76;
     --line: #E1DFD8;
@@ -55,7 +42,6 @@
     color: var(--green);
   }
 
-  /* ---------- Nav ---------- */
   header.nav {
     position: sticky;
     top: 0;
@@ -81,18 +67,16 @@
   .nav-links { display: flex; align-items: center; gap: 32px; font-size: 0.9rem; }
   .nav-links a { color: var(--muted); transition: color 0.15s ease; }
   .nav-links a:hover, .nav-links a:focus-visible { color: var(--ink); }
-  .btn {
-    font-family: var(--mono);
-    font-size: 0.8rem;
-    padding: 10px 18px;
-    border: 1px solid var(--ink);
-    border-radius: 6px;
-    transition: background 0.15s ease, color 0.15s ease;
-  }
-  .btn:hover, .btn:focus-visible { background: var(--ink); color: var(--paper); }
 
   /* ---------- Hero ---------- */
-  .hero { padding: 112px 0 88px; border-bottom: 1px solid var(--line); }
+  .hero {
+    padding: 112px 0 72px;
+    border-bottom: 1px solid var(--line);
+    background-image:
+      linear-gradient(rgba(27,29,35,0.045) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(27,29,35,0.045) 1px, transparent 1px);
+    background-size: 34px 34px;
+  }
   .hero .eyebrow { display: block; margin-bottom: 24px; }
   .hero h1 {
     font-family: var(--display);
@@ -106,8 +90,8 @@
   .hero .subhead {
     font-size: 1.1rem;
     color: var(--muted);
-    max-width: 58ch;
-    margin-bottom: 36px;
+    max-width: 62ch;
+    margin-bottom: 32px;
   }
   .tag-row { display: flex; flex-wrap: wrap; gap: 10px; }
   .tag {
@@ -117,6 +101,30 @@
     background: var(--green-tint);
     color: var(--green);
     border-radius: 6px;
+  }
+
+  .stat-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 48px;
+    margin-top: 40px;
+    padding-top: 32px;
+    border-top: 1px solid var(--line);
+  }
+  .stat strong {
+    display: block;
+    font-family: var(--display);
+    font-size: 1.7rem;
+    font-weight: 700;
+    line-height: 1;
+    margin-bottom: 6px;
+  }
+  .stat span {
+    font-family: var(--mono);
+    font-size: 0.7rem;
+    color: var(--muted);
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
   }
 
   /* ---------- Section heads ---------- */
@@ -149,11 +157,9 @@
     transition: border-color 0.2s ease, transform 0.2s ease;
   }
   .card:hover { border-color: var(--green); transform: translateY(-2px); }
+  .card.featured { grid-column: span 2; }
+  @media (max-width: 700px) { .card.featured { grid-column: span 1; } }
 
-  /* Signature detail: each card is framed like a browser window.
-     On hover, a terminal-style deploy line fades in over the
-     canvas — a nod to the real hosting/deployment work behind
-     each project, not a generic decoration. */
   .browser-frame { background: #EFEEE9; }
   .browser-bar {
     display: flex;
@@ -162,7 +168,7 @@
     padding: 10px 12px;
     border-bottom: 1px solid var(--line);
   }
-  .dot { width: 8px; height: 8px; border-radius: 50%; background: #D8D6CE; }
+  .dot { width: 8px; height: 8px; border-radius: 50%; background: #D8D6CE; flex-shrink: 0; }
   .browser-bar .url {
     font-family: var(--mono);
     font-size: 0.7rem;
@@ -173,56 +179,85 @@
     padding: 3px 10px;
     margin-left: 8px;
     flex: 1;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    min-width: 0;
   }
+
+  /* Signature detail: a CSS-only wireframe mockup (nav bar, headline,
+     text lines, button) instead of a flat color block — reads as an
+     actual page preview rather than decoration. */
   .browser-body {
     position: relative;
     aspect-ratio: 16 / 10;
-    background: linear-gradient(135deg, #F1F0EC 0%, #E4E2D9 100%);
+    background-color: #EFEEE9;
+    background-image:
+      linear-gradient(var(--ink) 0 0),
+      linear-gradient(rgba(27,29,35,0.5) 0 0),
+      linear-gradient(rgba(27,29,35,0.22) 0 0),
+      linear-gradient(rgba(27,29,35,0.22) 0 0),
+      linear-gradient(var(--green) 0 0);
+    background-repeat: no-repeat;
+    background-size:
+      100% 13%,
+      52% 9%,
+      64% 4.5%,
+      42% 4.5%,
+      24% 9%;
+    background-position:
+      0 0,
+      24px 32%,
+      24px 50%,
+      24px 60%,
+      24px 76%;
     display: flex;
     align-items: flex-end;
     padding: 14px;
   }
-  .card:nth-child(3n+2) .browser-body { background: linear-gradient(135deg, #EAF1EC 0%, #DCE7DF 100%); }
-  .card:nth-child(3n+3) .browser-body { background: linear-gradient(135deg, #F1EEE8 0%, #E6E1D6 100%); }
+  .card.featured .browser-body { aspect-ratio: 21 / 9; }
 
   .category-badge {
     font-family: var(--mono);
     font-size: 0.68rem;
-    background: rgba(27,29,35,0.85);
-    color: var(--paper);
+    background: rgba(255,255,255,0.92);
+    color: var(--ink);
     padding: 4px 10px;
     border-radius: 4px;
+    position: relative;
+    z-index: 2;
   }
 
-  .deploy-overlay {
+  /* Hover state: a simple, honest "view the live site" reveal —
+     no fabricated command-line output. */
+  .card-hover-cta {
     position: absolute;
     inset: 0;
     display: flex;
-    flex-direction: column;
-    justify-content: center;
     align-items: center;
-    gap: 4px;
-    background: rgba(27,29,35,0.9);
+    justify-content: center;
+    background: rgba(27,29,35,0.82);
     opacity: 0;
     transition: opacity 0.2s ease;
+    z-index: 3;
   }
-  .card:hover .deploy-overlay { opacity: 1; }
-  .deploy-overlay p {
+  .card:hover .card-hover-cta { opacity: 1; }
+  .card-hover-cta span {
     font-family: var(--mono);
-    font-size: 0.72rem;
-    color: #C9F0D8;
-    margin: 0;
+    font-size: 0.8rem;
+    color: #fff;
+    border: 1px solid rgba(255,255,255,0.45);
+    padding: 9px 18px;
+    border-radius: 999px;
   }
-  .deploy-overlay p.ok { color: #8FE3AE; }
 
-  /* Mobile-app variant: phone silhouette instead of browser chrome,
-     since this project is a real Flutter app, not a website. */
   .browser-frame.mobile .browser-body {
     aspect-ratio: 16 / 10;
+    background-image: none;
+    background-color: #EAF1EC;
     display: flex;
     align-items: center;
     justify-content: center;
-    background: linear-gradient(135deg, #EAF1EC 0%, #DCE7DF 100%);
   }
   .phone-shell {
     width: 92px;
@@ -251,6 +286,7 @@
     font-weight: 600;
     margin-bottom: 4px;
   }
+  .card.featured .card-content h3 { font-size: 1.5rem; }
   .card-content .role {
     font-family: var(--mono);
     font-size: 0.72rem;
@@ -276,22 +312,18 @@
     font-weight: 500;
     color: var(--green);
   }
+  .card-link.muted { color: var(--muted); font-weight: 400; }
 
-  /* ---------- About / Skills ---------- */
-  .about { padding: 88px 0; border-bottom: 1px solid var(--line); }
+  /* ---------- About ---------- */
+  .about { padding: 88px 0; border-bottom: 1px solid var(--line); background: var(--paper-alt); }
   .about-grid { display: grid; grid-template-columns: 1.1fr 1fr; gap: 56px; }
   .about h2 { font-family: var(--display); font-weight: 600; font-size: 1.9rem; margin-bottom: 20px; }
-  .about p { color: var(--muted); font-size: 1rem; margin-bottom: 16px; max-width: 48ch; }
-  .skill-row {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 16px 0;
-    border-top: 1px solid var(--line);
-  }
-  .skill-row:last-child { border-bottom: 1px solid var(--line); }
-  .skill-row h4 { font-family: var(--display); font-size: 0.98rem; font-weight: 600; }
-  .skill-row span { font-family: var(--mono); font-size: 0.72rem; color: var(--muted); }
+  .about p { color: var(--muted); font-size: 1rem; margin-bottom: 16px; max-width: 50ch; }
+  .skill-block { padding: 18px 0; border-top: 1px solid var(--line); }
+  .skill-block:last-child { border-bottom: 1px solid var(--line); }
+  .skill-block h4 { font-family: var(--display); font-size: 0.95rem; font-weight: 600; margin-bottom: 10px; }
+  .skill-block .stack-tags { margin-bottom: 0; }
+  .skill-block .stack-tags span { background: #fff; }
 
   /* ---------- Contact ---------- */
   .contact { padding: 88px 0 64px; text-align: center; }
@@ -302,17 +334,17 @@
     margin-bottom: 16px;
   }
   .contact p { color: var(--muted); max-width: 44ch; margin: 0 auto 30px; }
-  .contact-email {
+  .contact-links { display: flex; flex-wrap: wrap; gap: 14px; justify-content: center; margin-bottom: 36px; }
+  .contact-pill {
     font-family: var(--mono);
-    font-size: 1.05rem;
+    font-size: 0.95rem;
     display: inline-block;
-    padding: 14px 28px;
+    padding: 14px 24px;
     border: 1px solid var(--ink);
     border-radius: 6px;
-    margin-bottom: 36px;
     transition: background 0.15s ease, color 0.15s ease;
   }
-  .contact-email:hover { background: var(--ink); color: var(--paper); }
+  .contact-pill:hover { background: var(--ink); color: var(--paper); }
   .social-row { display: flex; gap: 24px; justify-content: center; font-size: 0.9rem; }
   .social-row a { color: var(--muted); }
   .social-row a:hover { color: var(--green); }
@@ -330,6 +362,8 @@
   @media (max-width: 860px) {
     .about-grid { grid-template-columns: 1fr; gap: 32px; }
     .nav-links { display: none; }
+    .contact-links { flex-direction: column; align-items: center; }
+    .stat-row { gap: 32px; }
   }
 
   a:focus-visible, button:focus-visible { outline: 2px solid var(--green); outline-offset: 2px; }
@@ -339,12 +373,11 @@
 
 <header class="nav">
   <div class="nav-inner wrap">
-    <div class="logo">[YN]</div>
+    <div class="logo">NP</div>
     <nav class="nav-links">
       <a href="#work">Work</a>
       <a href="#about">Skills</a>
       <a href="#contact">Contact</a>
-      <a class="btn" href="#" download>Resume</a>
     </nav>
   </div>
 </header>
@@ -352,7 +385,7 @@
 <section class="hero wrap">
   <span class="eyebrow">WordPress &amp; Web Developer</span>
   <h1>I build and ship websites that businesses run their operations on.</h1>
-  <p class="subhead">Nikitha petcy panditi — full-cycle WordPress development: custom Elementor builds, WooCommerce stores, PHP customization, hosting, deployment, and performance/SEO, for healthcare, real estate, e-commerce, and corporate clients.</p>
+  <p class="subhead">Hello! I'm Nikitha Petcy Panditi, a Web Developer and Project Manager passionate about creating modern websites, e-commerce platforms, and mobile applications. With experience across WordPress, Flutter, hosting infrastructure, SEO, and deployment, I help businesses build fast, reliable, and impactful digital experiences.</p>
   <div class="tag-row">
     <span class="tag">WordPress</span>
     <span class="tag">WooCommerce</span>
@@ -360,6 +393,11 @@
     <span class="tag">PHP</span>
     <span class="tag">Flutter</span>
     <span class="tag">Hosting &amp; Deployment</span>
+  </div>
+  <div class="stat-row reveal">
+    <div class="stat"><strong>11</strong><span>Websites &amp; Apps Shipped</span></div>
+    <div class="stat"><strong>8</strong><span>Industries Served</span></div>
+    <div class="stat"><strong>WP → Flutter</strong><span>Full-Stack Breadth</span></div>
   </div>
 </section>
 
@@ -371,29 +409,30 @@
 
   <div class="card-grid">
 
-    <article class="card reveal">
+    <article class="card featured reveal">
       <div class="browser-frame">
-        <div class="browser-bar"><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="url">[proximus-domain.com]</span></div>
+        <div class="browser-bar"><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="url">proximus.buildrealtor.com</span></div>
         <div class="browser-body">
           <span class="category-badge">Utility Billing</span>
-          <div class="deploy-overlay"><p>$ deploy proximus --env=production</p><p class="ok">✓ build complete · live</p></div>
+          <div class="card-hover-cta"><span>View Live Site ↗</span></div>
         </div>
       </div>
       <div class="card-content">
+        <span class="eyebrow" style="display:block;margin-bottom:6px;">Featured Project</span>
         <h3>Proximus</h3>
         <p class="role">Web Developer</p>
         <p class="desc">Developed and maintained a utility billing platform with responsive interfaces, feature enhancements, and ongoing technical support.</p>
         <div class="stack-tags"><span>WordPress</span><span>Elementor</span><span>PHP</span><span>JavaScript</span><span>cPanel</span></div>
-        <a class="card-link" href="https://proximus.buildrealtor.com/">[Add live URL] →</a>
+        <a class="card-link" href="https://proximus.buildrealtor.com/" target="_blank" rel="noopener">Visit site →</a>
       </div>
     </article>
 
     <article class="card reveal">
       <div class="browser-frame">
-        <div class="browser-bar"><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="url">[drsingu-domain.com]</span></div>
+        <div class="browser-bar"><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="url">lavenderblush-mongoose-794878.hostingersite.com</span></div>
         <div class="browser-body">
           <span class="category-badge">Healthcare</span>
-          <div class="deploy-overlay"><p>$ deploy dr-singu --env=production</p><p class="ok">✓ optimized · live</p></div>
+          <div class="card-hover-cta"><span>View Live Site ↗</span></div>
         </div>
       </div>
       <div class="card-content">
@@ -401,16 +440,16 @@
         <p class="role">Web Developer</p>
         <p class="desc">Designed and maintained a healthcare website with responsive layouts, performance optimization, hosting management, and SEO improvements.</p>
         <div class="stack-tags"><span>WordPress</span><span>Elementor</span><span>PHP</span><span>Hostinger</span></div>
-        <a class="card-link" href="#">[Add live URL] →</a>
+        <a class="card-link" href="https://lavenderblush-mongoose-794878.hostingersite.com/home/" target="_blank" rel="noopener">Visit site →</a>
       </div>
     </article>
 
     <article class="card reveal">
       <div class="browser-frame">
-        <div class="browser-bar"><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="url">[dealsmedi-domain.com]</span></div>
+        <div class="browser-bar"><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="url">Internal · Confidential</span></div>
         <div class="browser-body">
           <span class="category-badge">E-commerce</span>
-          <div class="deploy-overlay"><p>$ deploy dealsmedi --env=production</p><p class="ok">✓ build complete · live</p></div>
+          <div class="card-hover-cta"><span>Confidential Project</span></div>
         </div>
       </div>
       <div class="card-content">
@@ -418,7 +457,24 @@
         <p class="role">Web Developer</p>
         <p class="desc">Developed and maintained an e-commerce platform with product management, performance optimization, hosting, deployment, and ongoing technical support.</p>
         <div class="stack-tags"><span>WordPress</span><span>WooCommerce</span><span>Elementor</span><span>PHP</span><span>Kinsta</span></div>
-        <a class="card-link" href="#">[Add live URL] →</a>
+        <span class="card-link muted">Internal project — confidential</span>
+      </div>
+    </article>
+
+    <article class="card reveal">
+      <div class="browser-frame">
+        <div class="browser-bar"><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="url">dermoreclinic.impactrixadagency.co.in</span></div>
+        <div class="browser-body">
+          <span class="category-badge">Dermatology Branding</span>
+          <div class="card-hover-cta"><span>View Live Site ↗</span></div>
+        </div>
+      </div>
+      <div class="card-content">
+        <h3>Dermore Clinic</h3>
+        <p class="role">WordPress Developer</p>
+        <p class="desc">Designed and developed a dermatology clinic branding website with responsive layouts, custom Elementor sections, and deployment support.</p>
+        <div class="stack-tags"><span>WordPress</span><span>Elementor</span><span>PHP</span><span>HTML5</span><span>CSS3</span></div>
+        <a class="card-link" href="https://dermoreclinic.impactrixadagency.co.in/home-page/" target="_blank" rel="noopener">Visit site →</a>
       </div>
     </article>
 
@@ -427,7 +483,7 @@
         <div class="browser-bar"><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="url">Flutter · Android</span></div>
         <div class="browser-body">
           <div class="phone-shell"></div>
-          <div class="deploy-overlay"><p>$ flutter build apk --release</p><p class="ok">✓ shipped to Android</p></div>
+          <div class="card-hover-cta"><span>Available on Request</span></div>
         </div>
       </div>
       <div class="card-content">
@@ -435,16 +491,16 @@
         <p class="role">Flutter Developer</p>
         <p class="desc">Built a Flutter-based mobile app integrating the corporate website with seamless navigation, pull-to-refresh, connectivity handling, and Android release deployment.</p>
         <div class="stack-tags"><span>Flutter</span><span>Dart</span><span>WebView</span><span>Android Studio</span><span>Git</span></div>
-        <a class="card-link" href="#">[Add Play Store link] →</a>
+        <span class="card-link muted">Available on request</span>
       </div>
     </article>
 
     <article class="card reveal">
       <div class="browser-frame">
-        <div class="browser-bar"><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="url">[tailwaggers-domain.com]</span></div>
+        <div class="browser-bar"><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="url">tailwaggers.pet</span></div>
         <div class="browser-body">
           <span class="category-badge">Pet Care · E-commerce</span>
-          <div class="deploy-overlay"><p>$ deploy tail-waggers --env=production</p><p class="ok">✓ build complete · live</p></div>
+          <div class="card-hover-cta"><span>View Live Site ↗</span></div>
         </div>
       </div>
       <div class="card-content">
@@ -452,16 +508,16 @@
         <p class="role">WordPress Developer</p>
         <p class="desc">Developed a fully responsive WooCommerce pet care website with custom Elementor layouts, dynamic content sections, and optimized user experience.</p>
         <div class="stack-tags"><span>WordPress</span><span>WooCommerce</span><span>Elementor</span><span>PHP</span></div>
-        <a class="card-link" href="#">[Add live URL] →</a>
+        <a class="card-link" href="https://tailwaggers.pet/" target="_blank" rel="noopener">Visit site →</a>
       </div>
     </article>
 
     <article class="card reveal">
       <div class="browser-frame">
-        <div class="browser-bar"><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="url">[pointpulse-domain.com]</span></div>
+        <div class="browser-bar"><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="url">pointpulse.store</span></div>
         <div class="browser-body">
           <span class="category-badge">E-commerce</span>
-          <div class="deploy-overlay"><p>$ deploy pointpulse --env=production</p><p class="ok">✓ optimized · live</p></div>
+          <div class="card-hover-cta"><span>View Live Site ↗</span></div>
         </div>
       </div>
       <div class="card-content">
@@ -469,16 +525,16 @@
         <p class="role">WordPress Developer</p>
         <p class="desc">Built and optimized an e-commerce website with WooCommerce integration, custom layouts, responsive design, and performance enhancements.</p>
         <div class="stack-tags"><span>WordPress</span><span>WooCommerce</span><span>Elementor</span><span>PHP</span></div>
-        <a class="card-link" href="#">[Add live URL] →</a>
+        <a class="card-link" href="https://pointpulse.store/" target="_blank" rel="noopener">Visit site →</a>
       </div>
     </article>
 
     <article class="card reveal">
       <div class="browser-frame">
-        <div class="browser-bar"><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="url">[pramaanit-domain.com]</span></div>
+        <div class="browser-bar"><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="url">pramaanit.com</span></div>
         <div class="browser-body">
           <span class="category-badge">Corporate · IT Services</span>
-          <div class="deploy-overlay"><p>$ deploy pramaan-it --env=production</p><p class="ok">✓ build complete · live</p></div>
+          <div class="card-hover-cta"><span>View Live Site ↗</span></div>
         </div>
       </div>
       <div class="card-content">
@@ -486,16 +542,16 @@
         <p class="role">WordPress Developer</p>
         <p class="desc">Developed a corporate website with custom WordPress functionality, plugin integration, responsive design, and website performance optimization.</p>
         <div class="stack-tags"><span>WordPress</span><span>Elementor</span><span>PHP</span></div>
-        <a class="card-link" href="#">[Add live URL] →</a>
+        <a class="card-link" href="https://pramaanit.com/" target="_blank" rel="noopener">Visit site →</a>
       </div>
     </article>
 
     <article class="card reveal">
       <div class="browser-frame">
-        <div class="browser-bar"><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="url">[forty4-domain.com]</span></div>
+        <div class="browser-bar"><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="url">forty4.tech</span></div>
         <div class="browser-body">
           <span class="category-badge">Corporate Branding</span>
-          <div class="deploy-overlay"><p>$ deploy forty4 --env=production</p><p class="ok">✓ build complete · live</p></div>
+          <div class="card-hover-cta"><span>View Live Site ↗</span></div>
         </div>
       </div>
       <div class="card-content">
@@ -503,41 +559,41 @@
         <p class="role">WordPress Developer</p>
         <p class="desc">Designed and developed a corporate branding website featuring responsive UI, custom layouts, deployment support, and performance optimization.</p>
         <div class="stack-tags"><span>WordPress</span><span>Elementor</span><span>PHP</span></div>
-        <a class="card-link" href="#">[Add live URL] →</a>
+        <a class="card-link" href="https://forty4.tech/" target="_blank" rel="noopener">Visit site →</a>
       </div>
     </article>
 
     <article class="card reveal">
       <div class="browser-frame">
-        <div class="browser-bar"><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="url">[arhomes-domain.com]</span></div>
+        <div class="browser-bar"><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="url">arhomes.in</span></div>
         <div class="browser-body">
           <span class="category-badge">Real Estate</span>
-          <div class="deploy-overlay"><p>$ deploy ar-homes --env=production</p><p class="ok">✓ build complete · live</p></div>
+          <div class="card-hover-cta"><span>View Live Site ↗</span></div>
         </div>
       </div>
       <div class="card-content">
         <h3>AR Homes</h3>
         <p class="role">WordPress Developer</p>
-        <p class="desc">Developed a premium real estate website with responsive design, custom Elementor pages, interactive sections, and optimized performance.</p>
+        <p class="desc">Developed a premium real estate website with responsive design, custom Elementor pages, plugin customization, and optimized performance.</p>
         <div class="stack-tags"><span>WordPress</span><span>Elementor</span><span>PHP</span></div>
-        <a class="card-link" href="#">[Add live URL] →</a>
+        <a class="card-link" href="https://arhomes.in/" target="_blank" rel="noopener">Visit site →</a>
       </div>
     </article>
 
     <article class="card reveal">
       <div class="browser-frame">
-        <div class="browser-bar"><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="url">[aditihomes-domain.com]</span></div>
+        <div class="browser-bar"><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="url">aditihomes.impactrixadagency.co.in</span></div>
         <div class="browser-body">
           <span class="category-badge">Real Estate</span>
-          <div class="deploy-overlay"><p>$ deploy aditi-homes --env=production</p><p class="ok">✓ SEO-ready · live</p></div>
+          <div class="card-hover-cta"><span>View Live Site ↗</span></div>
         </div>
       </div>
       <div class="card-content">
         <h3>Aditi Homes</h3>
         <p class="role">WordPress Developer</p>
-        <p class="desc">Created a modern real estate website with custom page layouts, responsive design, hosting integration, and SEO-friendly implementation.</p>
+        <p class="desc">Created a modern real estate website with custom page structuring, UI customization, hosting integration, and SEO-friendly implementation.</p>
         <div class="stack-tags"><span>WordPress</span><span>Elementor</span><span>PHP</span></div>
-        <a class="card-link" href="#">[Add live URL] →</a>
+        <a class="card-link" href="https://aditihomes.impactrixadagency.co.in/home-main/" target="_blank" rel="noopener">Visit site →</a>
       </div>
     </article>
 
@@ -548,16 +604,34 @@
   <div class="about-grid">
     <div class="reveal">
       <h2>About</h2>
-      <p>[Your name] — [a short bio: years of experience, how you got into WordPress development, and what you focus on now.]</p>
-      <p>[Optional: mention your availability for freelance/full-time work, or what kind of projects you're looking for next.]</p>
+      <p>Hello! I'm Nikitha Petcy Panditi, a Web Developer and Project Manager passionate about creating modern websites, e-commerce platforms, and mobile applications.</p>
+      <p>With experience across WordPress, Flutter, hosting infrastructure, SEO, and deployment, I help businesses build fast, reliable, and impactful digital experiences.</p>
     </div>
     <div class="reveal">
-      <div class="skill-row"><h4>WordPress &amp; Elementor</h4><span>Custom themes &amp; pages</span></div>
-      <div class="skill-row"><h4>WooCommerce</h4><span>Product &amp; store management</span></div>
-      <div class="skill-row"><h4>PHP · JS · HTML/CSS</h4><span>Core development</span></div>
-      <div class="skill-row"><h4>Hosting &amp; Deployment</h4><span>cPanel · Hostinger · Kinsta</span></div>
-      <div class="skill-row"><h4>Performance &amp; SEO</h4><span>Speed &amp; visibility optimization</span></div>
-      <div class="skill-row"><h4>Flutter Mobile Apps</h4><span>Dart · Android release</span></div>
+      <div class="skill-block">
+        <h4>Web Development</h4>
+        <div class="stack-tags"><span>WordPress</span><span>Elementor</span><span>HTML5</span><span>CSS3</span><span>JavaScript</span><span>PHP</span><span>Responsive Design</span><span>Theme &amp; Plugin Customization</span></div>
+      </div>
+      <div class="skill-block">
+        <h4>Project Management</h4>
+        <div class="stack-tags"><span>Requirement Gathering</span><span>Timeline Planning</span><span>Task Coordination</span><span>Stakeholder Communication</span><span>Team Leadership</span></div>
+      </div>
+      <div class="skill-block">
+        <h4>Hosting &amp; DevOps</h4>
+        <div class="stack-tags"><span>Hostinger</span><span>Kinsta</span><span>cPanel</span><span>DNS Configuration</span><span>SSL Setup</span><span>Website Migration</span><span>Backups &amp; Restoration</span><span>Docker</span><span>Kubernetes</span></div>
+      </div>
+      <div class="skill-block">
+        <h4>SEO &amp; Performance</h4>
+        <div class="stack-tags"><span>Rank Math</span><span>Ahrefs Audits</span><span>Caching</span><span>Image Optimization</span><span>Server-Level Optimization</span></div>
+      </div>
+      <div class="skill-block">
+        <h4>Mobile &amp; Frameworks</h4>
+        <div class="stack-tags"><span>Flutter (WebView, APK Builds)</span><span>React (Basic)</span><span>Vue.js (Basic)</span><span>Angular (Familiar)</span></div>
+      </div>
+      <div class="skill-block">
+        <h4>Other</h4>
+        <div class="stack-tags"><span>Python (Basic)</span><span>NLP Fundamentals</span><span>MySQL</span><span>Git/GitHub</span></div>
+      </div>
     </div>
   </div>
 </section>
@@ -565,16 +639,18 @@
 <section class="contact wrap" id="contact">
   <span class="eyebrow">Get in touch</span>
   <h2 style="margin-top:16px;">Let's work together</h2>
-  <p>[A short line inviting people to reach out — about freelance availability, full-time roles, or new projects.]</p>
-  <a class="contact-email" href="mailto:[your.email@example.com]">[your.email@example.com]</a>
+  <p>Open to new projects, freelance work, and full-time opportunities. Reach out any time.</p>
+  <div class="contact-links">
+    <a class="contact-pill" href="mailto:nikithapetcy132@gmail.com">nikithapetcy132@gmail.com</a>
+    <a class="contact-pill" href="tel:+919182883549">+91 91828 83549</a>
+  </div>
   <div class="social-row">
-    <a href="#">LinkedIn</a>
-    <a href="#">GitHub</a>
-    <a href="#">WhatsApp</a>
+    <a href="https://www.linkedin.com/in/nikitha-panditi-1841pn" target="_blank" rel="noopener">LinkedIn</a>
+    <a href="https://github.com/nikithapetcy" target="_blank" rel="noopener">GitHub</a>
   </div>
 </section>
 
-<footer>© 2026 [Your Name]. Built with care.</footer>
+<footer>© 2026 Nikitha Petcy Panditi. Built with care.</footer>
 
 <script>
   const revealEls = document.querySelectorAll('.reveal');
